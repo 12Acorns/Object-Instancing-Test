@@ -1,6 +1,9 @@
 using NEG.Plugins.Instancing.Indirect.Buffer;
 using NEG.Plugins.Instancing.Indirect.Update;
+using NEG.Plugins.Instancing.Indirect.Data;
 using UnityEngine;
+using UnityEngine.Rendering;
+using Unity.Collections;
 
 namespace NEG.Plugins.Instancing.Indirect 
 {
@@ -10,12 +13,15 @@ namespace NEG.Plugins.Instancing.Indirect
 		[SerializeField] private ObjectManager objectData;
 		[SerializeField] private UpdateType updateType;
 
+		private RenderParams renderParams;
 
-		private IndirectArgumentBuffer argBuffer;
+		private readonly ComputeBuffer meshPropertiesBuffer;
+
+		private IndirectArgumentBuffer? argBuffer = null;
 
 		private void Awake()
 		{
-			SetArgsBuffer();
+			Init();
 		}
 
 		private void Update()
@@ -30,7 +36,7 @@ namespace NEG.Plugins.Instancing.Indirect
 				case UpdateType.Continuous:
 					SetArgsBuffer();
 
-
+					Instance();
 					break;
 				case UpdateType.NoChange:
 					Instance();
@@ -39,23 +45,19 @@ namespace NEG.Plugins.Instancing.Indirect
 		}
 		private void Instance()
 		{
-
+			Graphics.RenderMeshIndirect(
+				renderParams, objectData.GetMesh(), 
+				argBuffer?.Buffer, objectData.GetChildCount());
 		}
 		private void SetArgsBuffer()
 		{
-			argBuffer.Dispose();
+			argBuffer?.Dispose();
 
 			var _args = GetIndirectArgsMeshData();
 
 			argBuffer = new IndirectArgumentBuffer(_args);
 		}
-		private (int _count, Mesh _mesh) GetMeshData()
-		{
-			var _count = objectData.GetChildCount();
-			var _mesh = objectData.GetMesh();
 
-			return (_count, _mesh);
-		}
 		private GraphicsBuffer.IndirectDrawIndexedArgs[] GetIndirectArgsMeshData()
 		{
 			// Arguments for drawing mesh.
@@ -72,10 +74,45 @@ namespace NEG.Plugins.Instancing.Indirect
 
 			return _argsBuffer;
 		}
+		private (int _count, Mesh _mesh) GetMeshData()
+		{
+			var _count = objectData.GetChildCount();
+			var _mesh = objectData.GetMesh();
+
+			return (_count, _mesh);
+		}
+		private void SetMaterialData()
+		{
+			objectData.GetMaterial().SetBuffer("_PerInstanceData", meshPropertiesBuffer);
+		}
+		private void SetMeshPropertiesBuffer()
+		{
+
+		}
+		private void SetBounds()
+		{
+			renderParams = new(objectData.GetMaterial())
+			{
+				worldBounds = new Bounds(objectData.GetParent().transform.position, Vector3.one * 1000),
+				lightProbeUsage = LightProbeUsage.Off,
+				receiveShadows = transform,
+				reflectionProbeUsage = ReflectionProbeUsage.Off,
+				shadowCastingMode = ShadowCastingMode.On,
+			};
+		}
+		private void Init()
+		{
+			SetArgsBuffer();
+			SetBounds();
+
+
+
+			//SetMaterialData();
+		}
 
 		private void Dispose()
 		{
-			argBuffer.Dispose();
+			argBuffer?.Dispose();
 		}
 
 		#region Disposal

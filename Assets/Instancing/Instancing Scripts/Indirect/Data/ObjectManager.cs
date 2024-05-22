@@ -1,35 +1,32 @@
+using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Codice.Client.BaseCommands;
 
-public class ObjectManager : MonoBehaviour
+namespace NEG.Plugins.Instancing.Indirect.Data
 {
-	[Header("Object Referencing", order = 0)]
-	[SerializeField] private Transform[] objects;
-	[SerializeField] private Transform parent;
+	internal sealed class ObjectManager : MonoBehaviour
+	{
+		[Header("Object Referencing", order = 0)]
+		[SerializeField] private ObjectData[] objects;
+		[SerializeField] private GameObject parent;
 
-	[Header("Object Data", order = 1)]
-	[SerializeField] private Material targetMaterial;
-	[SerializeField] private Mesh targetMesh;
+		[Header("Object Data", order = 1)]
+		[SerializeField] private Material targetMaterial;
+		[SerializeField] private Mesh targetMesh;
 
-	private void Awake()
-	{
-		objects = parent.GetComponentsInChildren<Transform>();
-	}
+		private void Awake()
+		{
+			objects = parent.GetComponentsInChildren<ObjectData>();
+		}
 
-	public Material GetMaterial()
-	{
-		return targetMaterial;
-	}
-	public Mesh GetMesh()
-	{
-		return targetMesh;
-	}
-	public ReadOnlySpan<Transform> GetChildren()
-	{
-		return objects;
-	}
-	public int GetChildCount()
-	{
-		return objects.Length;
+		public GameObject GetParent() => parent;
+		public Material GetMaterial() => targetMaterial;
+		public Mesh GetMesh() => targetMesh;
+
+		public ReadOnlySpan<ObjectData> GetChildrenSpan() => objects;
+		public IEnumerable<ObjectData> GetChildren() => objects;
+
+		public int GetChildCount() => objects.Length;
 	}
 }

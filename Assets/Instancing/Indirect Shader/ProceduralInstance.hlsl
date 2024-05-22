@@ -28,11 +28,12 @@ void GetInstancingPos_float(in float3 PositionWS, out float3 Out)
     #endif
 }
 
-void GetInstancingColor_float(out float4 Out)
+// Shader Graph Functions
+void GetInstancingColor_float(out float4 New)
 {
-    Out = 0;
+    New = 0;
     #if UNITY_ANY_INSTANCING_ENABLED
-        Out = _PerInstanceData[unity_InstanceID].Color;
+        New = _PerInstanceData[unity_InstanceID].Color;
     #endif
 }
 
