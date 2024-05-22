@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using System;
-using Codice.Client.BaseCommands;
 
 namespace NEG.Plugins.Instancing.Indirect.Data
 {
@@ -28,5 +28,10 @@ namespace NEG.Plugins.Instancing.Indirect.Data
 		public IEnumerable<ObjectData> GetChildren() => objects;
 
 		public int GetChildCount() => objects.Length;
+
+		public void SetChildren(IEnumerable<ObjectData> _children)
+		{
+			objects = _children.ToArray();
+		}
 	}
 }

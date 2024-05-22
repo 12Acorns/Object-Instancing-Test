@@ -1,0 +1,16 @@
+{
+    "name": "Test",
+    "rootNamespace": "NEG.Plugins.Test",
+    "references": [
+        "GUID:da05b6a27922c1c4da314c06c69439f0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

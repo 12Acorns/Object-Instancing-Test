@@ -84,6 +84,7 @@
     "m_OutputNode": {
         "m_Id": "15a01cbbb50e4d4c9ba8ee0acaf4630d"
     },
+    "m_SubDatas": [],
     "m_ActiveTargets": []
 }
 
@@ -122,10 +123,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 310.75,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
+            "x": 159.49998474121095,
+            "y": -47.000003814697269,
+            "width": 120.50004577636719,
+            "height": 76.99998474121094
         }
     },
     "m_Slots": [
@@ -134,8 +135,9 @@
         }
     ],
     "synonyms": [],
-    "m_Precision": 0,
+    "m_Precision": 1,
     "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
@@ -170,8 +172,9 @@
         }
     ],
     "synonyms": [],
-    "m_Precision": 0,
+    "m_Precision": 1,
     "m_PreviewExpanded": false,
+    "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
@@ -255,7 +258,8 @@
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
-    "m_Precision": 0,
+    "m_DismissedVersion": 0,
+    "m_Precision": 1,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
@@ -302,10 +306,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -345.0,
-            "y": -17.0,
-            "width": 87.0,
-            "height": 34.0
+            "x": -237.99996948242188,
+            "y": -3.999981164932251,
+            "width": 86.50001525878906,
+            "height": 33.999969482421878
         }
     },
     "m_Slots": [
@@ -314,8 +318,9 @@
         }
     ],
     "synonyms": [],
-    "m_Precision": 0,
+    "m_Precision": 1,
     "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []

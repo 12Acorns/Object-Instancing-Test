@@ -171,6 +171,7 @@ Material:
     - _BlendMode: 0
     - _CoatMask: 0
     - _ConservativeDepthOffsetEnable: 0
+    - _Count: 100
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
@@ -225,6 +226,8 @@ Material:
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _PROCEDURAL_INSTANCING: 1
+    - _Points: 0
+    - _Radius: 13.93
     - _RayTracing: 0
     - _ReceivesSSR: 0
     - _ReceivesSSRTransparent: 0
@@ -273,7 +276,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _Albedo: {r: 1, g: 1, b: 1, a: 0.21176471}
+    - _Albedo: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -285,6 +288,7 @@ Material:
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Sphere_Centre: {r: 5, g: 5, b: 5, a: 0}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}

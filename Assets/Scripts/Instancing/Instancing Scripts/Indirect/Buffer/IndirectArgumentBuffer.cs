@@ -5,13 +5,9 @@ namespace NEG.Plugins.Instancing.Indirect.Buffer
 {
 	public readonly struct IndirectArgumentBuffer : IDisposable
 	{
-		private const int lengthOfBuffer = 5;
-
-		private const int sizeOfUInt = sizeof(uint);
-
-		public IndirectArgumentBuffer(GraphicsBuffer.IndirectDrawIndexedArgs[] _args)
+		public IndirectArgumentBuffer(GraphicsBuffer.IndirectDrawIndexedArgs[] _args, int _bufferLength)
 		{
-			Buffer = new(GraphicsBuffer.Target.IndirectArguments, lengthOfBuffer, sizeOfUInt);
+			Buffer = new(GraphicsBuffer.Target.IndirectArguments, _bufferLength, GraphicsBuffer.IndirectDrawIndexedArgs.size);
 
 			indirectArgs = _args;
 			Buffer.SetData(indirectArgs);

@@ -1,7 +1,9 @@
 {
-    "name": "IndirectInstancing",
+    "name": "Indirect Instancing",
     "rootNamespace": "NEG.Plugins.Instancing.Indirect",
-    "references": [],
+    "references": [
+        "GUID:ce79ac10fb7499f4ea2e154a80da0b77"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
